@@ -19,7 +19,7 @@ function App() {
       {/* <Admin />
       <AddPost /> */}
       <Routes>
-        <Route exact path='/admin' element={<Admin />} />
+        <Route path='/admin' element={<Admin />} />
         <Route path='/' element={<Home />} />
         <Route path='/posts/:id' element={<FullPost />} />
       </Routes>
