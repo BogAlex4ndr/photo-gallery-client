@@ -19,9 +19,9 @@ function App() {
       {/* <Admin />
       <AddPost /> */}
       <Routes>
-        <Route path=':/admin' element={<Admin />} />
+        <Route exact path='/admin' element={<Admin />} />
         <Route path='/' element={<Home />} />
-        <Route path=':/posts/:id' element={<FullPost />} />
+        <Route path='/posts/:id' element={<FullPost />} />
       </Routes>
     </div>
   );
