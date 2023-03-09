@@ -13,16 +13,15 @@ import React from 'react';
 import { fechAuthMe } from './redux/slices/auth';
 
 function App() {
-  
   return (
     <div className='App'>
       <Header />
       {/* <Admin />
       <AddPost /> */}
       <Routes>
-        <Route path='/admin' element={<Admin />} />
+        <Route path='https://photo-gallery-mk.netlify.app/admin' element={<Admin />} />
         <Route path='/' element={<Home />} />
-        <Route path='/posts/:id' element={<FullPost />} />
+        <Route path='https://photo-gallery-mk.netlify.app/posts/:id' element={<FullPost />} />
       </Routes>
     </div>
   );
