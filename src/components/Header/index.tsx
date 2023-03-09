@@ -20,6 +20,7 @@ const Header = () => {
           <li>about</li>
           <li>somethin else</li>
           <li>contacts</li>
+          <Link to='/admin'>admin</Link>
         </ul>
       </nav>
     </header>
