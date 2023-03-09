@@ -9,9 +9,9 @@ const Post = ({ _id, imageUrl }) => {
   const dispatch = useDispatch();
 
   const onClickRemove = () => {
-     dispatch(fetchRemovePost(_id));
+    dispatch(fetchRemovePost(_id));
     axios.post(`/delete-image`, {
-      filename: imageUrl.replace('http://localhost:4444/uploads/', ''),
+      filename: imageUrl.replace('https://photo-gallery-server.onrender.com//uploads/', ''),
     });
   };
   return (

@@ -42,7 +42,7 @@ const AddPost = () => {
       } else {
         setIsLoading(true);
         const fields = {
-          imageUrl: `http://localhost:4444${imageUrl}`,
+          imageUrl: `https://photo-gallery-server.onrender.com/${imageUrl}`,
         };
 
         const { data } = await axios.post('/posts', fields);
@@ -68,7 +68,11 @@ const AddPost = () => {
         {imageUrl && <button onClick={removeImage}>Delete image</button>}
       </div>
       <div>
-        <img style={{ maxWidth: '300px' }} src={`http://localhost:4444${imageUrl}`} alt='' />
+        <img
+          style={{ maxWidth: '300px' }}
+          src={`https://photo-gallery-server.onrender.com/${imageUrl}`}
+          alt=''
+        />
       </div>
       <div>
         <button onClick={onSubmitImage}>Create post</button>

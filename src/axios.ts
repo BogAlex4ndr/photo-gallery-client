@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'http://localhost:4444',
+  baseURL: 'https://photo-gallery-server.onrender.com/',
 });
 
 instance.interceptors.request.use((config) => {
