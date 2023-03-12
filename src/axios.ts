@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+const apiKey = process.env.REACT_APP_API_KEY;
+
 const instance = axios.create({
-  baseURL: 'https://photo-gallery-server.onrender.com',
+  baseURL: apiKey,
 });
 
 instance.interceptors.request.use((config) => {
