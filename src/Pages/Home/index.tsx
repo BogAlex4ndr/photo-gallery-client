@@ -4,7 +4,7 @@ import styles from './Home.module.scss';
 import { useDispatch } from 'react-redux';
 import { fetchPosts } from '../../redux/slices/postSlice';
 import { useSelector } from 'react-redux';
-import Post from '../Post';
+import Post from '../../components/Post';
 import { Link } from 'react-router-dom';
 
 interface RootState {

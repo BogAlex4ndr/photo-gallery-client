@@ -1,14 +1,19 @@
 import React, { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import axios from '../../axios';
-import { logout } from '../../redux/slices/auth';
-import Home from '../Home';
+import axios from 'axios';
+import { logout, selectIsAuth } from '../../redux/slices/auth';
+import styles from './AddPost.module.scss';
+import PreviewBlock from '../PreviewBlock';
+import { useSelector } from 'react-redux';
 
 const AddPost = () => {
   const [imageUrl, setImageUrl]: any = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [fileName, setFileName]: any = useState();
+  const [load, setLoad] = useState(false);
+  const isAuth = useSelector(selectIsAuth);
+  const API_KEY = 'ab5ec021b00b8110391e0a8890fb5419';
 
   const inputFilleRef: any = useRef();
 
@@ -26,9 +31,11 @@ const AddPost = () => {
       const formData = new FormData();
       const file = event.target.files[0];
       formData.append('image', file);
-      const { data } = await axios.post('/upload', formData);
-      setImageUrl(data.url);
-      setFileName(file.name);
+      formData.append('key', API_KEY);
+
+      const { data } = await axios.post('https://api.imgbb.com/1/upload', formData);
+      setImageUrl(data.data.url);
+      console.log(data.data.url);
     } catch (error) {
       console.warn(error);
       alert('Error upload file');
@@ -39,13 +46,19 @@ const AddPost = () => {
     try {
       if (imageUrl === undefined) {
         return alert('add image');
-      } else {
+      }
+      if (isAuth) {
         setIsLoading(true);
         const fields = {
-          imageUrl: `https://photo-gallery-server.onrender.com/${imageUrl}`,
+          imageUrl: `${imageUrl}`,
         };
 
-        const { data } = await axios.post('/posts', fields);
+        const { data } = await axios.post(
+          'https://photo-gallery-server.onrender.com/posts',
+          fields,
+        );
+        setLoad(!load);
+        console.log(load);
       }
     } catch (err) {
       console.warn(err);
@@ -58,27 +71,33 @@ const AddPost = () => {
     axios.post(`/delete-image`, { filename: fileName });
   };
   return (
-    <div>
+    <div className={styles.wrapper}>
       <div>
-        <button onClick={onClickLogout}>Log Out</button>
+        <div>
+          <input type='file' ref={inputFilleRef} onChange={handleChangeFile} hidden />
+          <button className={styles.button} onClick={() => inputFilleRef.current.click()}>
+            upload image
+          </button>
+          {imageUrl && (
+            <button className={styles.button} onClick={removeImage}>
+              Delete image
+            </button>
+          )}
+        </div>
+        <div className={styles.imagePreviewConteiner}>
+          <img src={imageUrl} alt='' />
+        </div>
+        <div>
+          <button className={styles.button} onClick={onSubmitImage}>
+            Create post
+          </button>
+        </div>
       </div>
+      <div>{<PreviewBlock load={load} />}</div>
       <div>
-        <input type='file' ref={inputFilleRef} onChange={handleChangeFile} hidden />
-        <button onClick={() => inputFilleRef.current.click()}>upload image</button>
-        {imageUrl && <button onClick={removeImage}>Delete image</button>}
-      </div>
-      <div>
-        <img
-          style={{ maxWidth: '300px' }}
-          src={`https://photo-gallery-server.onrender.com/${imageUrl}`}
-          alt=''
-        />
-      </div>
-      <div>
-        <button onClick={onSubmitImage}>Create post</button>
-      </div>
-      <div style={{ maxWidth: '1200px', margin: '20px auto' }}>
-        <Home />
+        <button className={styles.button} onClick={onClickLogout}>
+          Log Out
+        </button>
       </div>
     </div>
   );

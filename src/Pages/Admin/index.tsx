@@ -1,9 +1,11 @@
 import React from 'react';
-import AddPost from '../AddPost';
+import AddPost from '../../components/AddPost';
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { fechAuthMe, fetchUserData, selectIsAuth } from '../../redux/slices/auth';
+import UploadImage from '../../components/UploadImage';
+import styles from './Admin.module.scss';
 
 type FormData = {
   email: string;
@@ -28,7 +30,7 @@ const Admin = () => {
     },
     mode: 'onChange',
   });
-  const onSubmit = async (values) => {
+  const onSubmit = async (values: any) => {
     const data = await dispatch(fetchUserData(values));
     if (!data.payload) {
       return alert('some problem here');
@@ -42,7 +44,7 @@ const Admin = () => {
   return (
     <div>
       {!window.localStorage.getItem('token') && !isAuth ? (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <input
             aria-label='E-mail'
             autoComplete='off'
@@ -55,7 +57,9 @@ const Admin = () => {
             autoComplete='off'
             placeholder={errors.password?.message}
             {...register('password', { required: 'password' })}></input>
-          <button type='submit'>Enter</button>
+          <button className={styles.button} type='submit'>
+            Enter
+          </button>
         </form>
       ) : (
         <AddPost />

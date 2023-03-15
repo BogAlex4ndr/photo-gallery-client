@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import Header from './components/Header';
 import './App.scss';
-import Admin from './components/Admin';
+import Admin from './Pages/Admin';
 import AddPost from './components/AddPost';
 import FullPost from './components/Fullpost/idex';
 import Post from './components/Post';
 import { Route, Routes } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import Home from './components/Home';
+import Home from './Pages/Home';
 import { useDispatch } from 'react-redux';
 import React from 'react';
 import { fechAuthMe } from './redux/slices/auth';
+import UploadImage from './components/UploadImage';
 
 function App() {
   return (

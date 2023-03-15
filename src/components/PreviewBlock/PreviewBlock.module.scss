@@ -1,0 +1,22 @@
+.wrapperPrewiev {
+  margin: 30px;
+  display: flex;
+  max-width: 1200px;
+  max-height: 600px;
+  flex-wrap: wrap;
+  gap: 10px;
+  scroll-behavior: smooth;
+  .item {
+width: 300px;
+height: 400px;
+    img {
+      object-fit: cover;
+     max-width: 300px;
+     max-height: 500px;
+    }
+  }
+}
+@media (max-width: 576px) {
+}
+
+
