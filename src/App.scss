@@ -1,0 +1,27 @@
+#root {
+
+}
+
+.App {
+    background-color: rgb(31, 31, 31);
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #000000;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba(27, 2, 97, 0.959);
+    border-radius: 12px;
+    &:hover {
+      background: rgba(59, 53, 138, 0.911);
+      border-radius: 12px;
+    }
+  }
