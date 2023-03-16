@@ -19,12 +19,13 @@ const Header = () => {
           <span></span>
         </div>
         <ul className={isOpen ? styles.menuActive : styles.menu}>
-          <li onClick={window.innerWidth < 768 && toggleMenu}>about</li>
-          <li onClick={window.innerWidth < 768 && toggleMenu}>somethin else</li>
-          <li onClick={window.innerWidth < 768 && toggleMenu}>contacts</li>
-          <Link onClick={window.innerWidth < 768 && toggleMenu} to='/admin'>
+          <li onClick={window.innerWidth < 768 ? toggleMenu : () => {}}>about</li>
+          <li onClick={window.innerWidth < 768 ? toggleMenu : () => {}}>somethin else</li>
+          <li onClick={window.innerWidth < 768 ? toggleMenu : () => {}}>contacts</li>
+          <Link onClick={window.innerWidth < 768 ? toggleMenu : () => {}} to='/admin'>
             admin
           </Link>
+          
         </ul>
       </nav>
     </header>

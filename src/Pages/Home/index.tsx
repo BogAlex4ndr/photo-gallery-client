@@ -1,5 +1,5 @@
 import axios from '../../axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import styles from './Home.module.scss';
 import { useDispatch } from 'react-redux';
 import { fetchPosts } from '../../redux/slices/postSlice';
@@ -17,6 +17,7 @@ const Home = () => {
 
   const isPostsLoading = posts.status === 'loading';
   console.log('this is items', posts.items);
+
   useEffect(() => {
     dispatch(fetchPosts());
   }, []);
@@ -26,17 +27,21 @@ const Home = () => {
       <div className={styles.previewPhoto}>
         {' '}
         <img src='http://i.mlcdn.com.br/portaldalu/fotosconteudo/87169_00.jpg' alt='' />
-        <h1><span>Art photographer</span> <span>Margarita Kramaruk</span></h1>
+        <h1>
+          <span>Art photographer</span> <span>Margarita Kramaruk</span>
+        </h1>
       </div>
       <Header />
       <div className={styles.wrapper}>
-        {(isPostsLoading ? [...Array(5)] : posts.items).map((obj: any, index: any) =>
-          isPostsLoading ? (
-            <div key={index}></div>
-          ) : (
-            <Post key={obj._id} imageUrl={obj.imageUrl} _id={obj._id} />
-          ),
-        )}
+        {(isPostsLoading ? [...Array(5)] : posts.items)
+          .map((obj: any, index: any) =>
+            isPostsLoading ? (
+              <div key={index}></div>
+            ) : (
+              <Post key={obj._id} imageUrl={obj.imageUrl} _id={obj._id} createdAt={obj.createdAt} />
+            ),
+          )
+          .reverse()}
       </div>
     </section>
   );

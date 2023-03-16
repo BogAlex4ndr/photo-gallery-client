@@ -14,11 +14,10 @@ const PreviewBlock = (load: any) => {
   const { posts } = useSelector((state: RootState) => state.posts);
 
   const isPostsLoading = posts.status === 'loading';
-  console.log('this is items', posts.items);
+  console.log('this is items', posts);
   useEffect(() => {
     dispatch(fetchPosts());
   }, [load]);
-
   return (
     <section>
       <div className={styles.wrapperPrewiev}>
@@ -28,7 +27,7 @@ const PreviewBlock = (load: any) => {
           ) : (
             <Post key={obj._id} imageUrl={obj.imageUrl} _id={obj._id} />
           ),
-        )}
+        ).reverse()}
       </div>
     </section>
   );

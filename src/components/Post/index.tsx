@@ -6,7 +6,7 @@ import styles from './Post.module.scss';
 import axios from '../../axios';
 import { selectIsAuth } from '../../redux/slices/auth';
 
-const Post = ({ _id, imageUrl }) => {
+const Post = ({ _id, imageUrl, createdAt }: any) => {
   const isAuth = useSelector(selectIsAuth);
   const dispatch = useDispatch();
 

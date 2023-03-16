@@ -40,11 +40,14 @@ $gutter: 20px;
     font-size: 3em;
     z-index: 50;
     color: white;
-
-    text-shadow: 1px 1px 5px rgb(0, 0, 0);
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
     span {
-      :nth-child(1n) {
-        color: red;
+      display: inline-block;
+      &:nth-child(2n+1) {
+       
+      }
+      &:nth-child(2n+2) {
+       
       }
     }
 
