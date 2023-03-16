@@ -1,16 +1,24 @@
 .wrapperPrewiev {
-  margin: 20px auto;
+  margin: 0 auto;
   display: flex;
   flex-flow: row wrap;
   background-color: rgb(51, 51, 51);
-  border: 2px solid rgb(0, 0, 0);
-  border-radius: 5px;
+  border: 5px solid rgb(14, 14, 14);
+  border-radius: 20px;
   padding: 10px;
-  width: 1390px;
-  height: 800px;
-  scroll-behavior: smooth;
+  max-width: 70vw;
+  min-width: 70vw;
+  height: 80vh;
+  
   overflow: auto;
-  box-shadow: 0px 0px 10px rgb(212, 212, 212);
+  gap: 10px;
+  box-shadow: 7px 7px 15px rgb(0, 0, 0);
 }
 @media (max-width: 576px) {
+  .wrapperPrewiev {
+    margin: 10px auto;
+    max-width: 100vw;
+    width: 329px !important;
+    border: 5px solid rgb(0, 0, 0);
+  }
 }

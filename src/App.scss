@@ -1,10 +1,16 @@
 #root {
 }
-
-.App {
+body {
   background-color: rgb(31, 31, 31);
   width: 100%;
   height: 100%;
+  color: white;
+}
+* {
+  outline: none;
+  text-decoration: none;
+}
+.App {
 }
 
 ::-webkit-scrollbar {
@@ -13,13 +19,14 @@
 
 ::-webkit-scrollbar-track {
   background: #000000;
+  border-radius: 12px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(27, 2, 97, 0.959);
+  background: rgb(196, 193, 24);
+  background: linear-gradient(0deg, rgb(153, 69, 1) 0%, rgb(7, 0, 68) 100%);
   border-radius: 12px;
   &:hover {
-    background: rgba(59, 53, 138, 0.911);
-    border-radius: 12px;
+    background: rgb(2, 7, 73);
   }
 }

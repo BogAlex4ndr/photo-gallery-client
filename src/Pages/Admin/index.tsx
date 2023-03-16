@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { fechAuthMe, fetchUserData, selectIsAuth } from '../../redux/slices/auth';
 import UploadImage from '../../components/UploadImage';
 import styles from './Admin.module.scss';
+import Header from '../../components/Header';
 
 type FormData = {
   email: string;
@@ -42,7 +43,8 @@ const Admin = () => {
 
   console.log('auth', isAuth);
   return (
-    <div>
+    <>
+      <Header />
       {!window.localStorage.getItem('token') && !isAuth ? (
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <input
@@ -64,7 +66,7 @@ const Admin = () => {
       ) : (
         <AddPost />
       )}
-    </div>
+    </>
   );
 };
 

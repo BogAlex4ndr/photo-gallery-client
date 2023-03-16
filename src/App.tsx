@@ -16,7 +16,7 @@ import UploadImage from './components/UploadImage';
 function App() {
   return (
     <div className='App'>
-      <Header />
+      {/* <Header /> */}
       {/* <Admin />
       <AddPost /> */}
       <Routes>

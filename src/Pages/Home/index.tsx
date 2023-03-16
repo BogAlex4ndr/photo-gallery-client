@@ -6,6 +6,7 @@ import { fetchPosts } from '../../redux/slices/postSlice';
 import { useSelector } from 'react-redux';
 import Post from '../../components/Post';
 import { Link } from 'react-router-dom';
+import Header from '../../components/Header';
 
 interface RootState {
   posts: any;
@@ -22,6 +23,7 @@ const Home = () => {
 
   return (
     <section>
+      <Header />
       <div className={styles.wrapper}>
         {(isPostsLoading ? [...Array(5)] : posts.items).map((obj: any, index: any) =>
           isPostsLoading ? (

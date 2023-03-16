@@ -11,16 +11,20 @@ const Header = () => {
 
   return (
     <header className={styles.wrapper}>
-      <Link to={'/'}><title className={styles.mainTitle}>Main title</title></Link>
+      <Link to={'/'}>
+        <title className={styles.mainTitle}>Main title</title>
+      </Link>
       <nav className={styles.navbar}>
         <div className={styles.burgerButton} onClick={toggleMenu}>
           <span></span>
         </div>
         <ul className={isOpen ? styles.menuActive : styles.menu}>
-          <li>about</li>
-          <li>somethin else</li>
-          <li>contacts</li>
-          <Link to='/admin'>admin</Link>
+          <li onClick={window.innerWidth < 768 && toggleMenu}>about</li>
+          <li onClick={window.innerWidth < 768 && toggleMenu}>somethin else</li>
+          <li onClick={window.innerWidth < 768 && toggleMenu}>contacts</li>
+          <Link onClick={window.innerWidth < 768 && toggleMenu} to='/admin'>
+            admin
+          </Link>
         </ul>
       </nav>
     </header>
