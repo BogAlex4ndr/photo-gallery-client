@@ -6,7 +6,7 @@ import styles from './Post.module.scss';
 import axios from '../../axios';
 import { selectIsAuth } from '../../redux/slices/auth';
 
-const Post = ({ _id, imageUrl, createdAt }: any) => {
+const Post = ({ _id, imageUrl, onClick }: any) => {
   const isAuth = useSelector(selectIsAuth);
   const dispatch = useDispatch();
 
@@ -23,9 +23,9 @@ const Post = ({ _id, imageUrl, createdAt }: any) => {
           X
         </button>
       )}
-      <Link to={`/posts/${_id}`}>
-        <img src={imageUrl} alt='Image' />
-      </Link>
+      
+        <img onClick={onClick} src={imageUrl} alt='Image' />
+     
     </div>
   );
 };

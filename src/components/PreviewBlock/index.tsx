@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { fetchPosts } from '../../redux/slices/postSlice';
 import { useSelector } from 'react-redux';
 import Post from '../../components/Post';
+import Skeleton from '../Skeleton';
 
 interface RootState {
   posts: any;
@@ -21,9 +22,9 @@ const PreviewBlock = (load: any) => {
   return (
     <section>
       <div className={styles.wrapperPrewiev}>
-        {(isPostsLoading ? [...Array(5)] : posts.items).map((obj: any, index: any) =>
+        {(isPostsLoading ? [...Array(10)] : posts.items).map((obj: any, index: any) =>
           isPostsLoading ? (
-            <div key={index}></div>
+            <Skeleton key={index}/>
           ) : (
             <Post key={obj._id} imageUrl={obj.imageUrl} _id={obj._id} />
           ),

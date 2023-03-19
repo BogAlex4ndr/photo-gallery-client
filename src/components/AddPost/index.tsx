@@ -98,6 +98,7 @@ const AddPost = () => {
         <button className={styles.buttonLogOut} onClick={onClickLogout}>
           Log Out
         </button>
+        
       </div>
     </div>
   );

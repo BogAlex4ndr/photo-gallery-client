@@ -40,14 +40,13 @@ $gutter: 20px;
     font-size: 3em;
     z-index: 50;
     color: white;
+    font-style: italic;
     text-shadow: 2px 2px 5px rgb(0, 0, 0);
     span {
       display: inline-block;
-      &:nth-child(2n+1) {
-       
+      &:nth-child(2n + 1) {
       }
-      &:nth-child(2n+2) {
-       
+      &:nth-child(2n + 2) {
       }
     }
 
@@ -56,4 +55,14 @@ $gutter: 20px;
       color: rgb(231, 229, 229);
     }
   }
+  .Scroller {
+    position: absolute;
+    bottom: 5%;
+    cursor: pointer;
+    pointer-events:visible;
+  }
+}
+
+.wrapperHiden {
+
 }

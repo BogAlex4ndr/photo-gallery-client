@@ -2,7 +2,7 @@ $imageWidth: 400px;
 
 .imageConteiner {
   position: relative;
-  height: calc(100vh / 2.22);
+  height: 45.3vh;
   min-width: 150px;
 
   &:nth-child(5n + 1) {
@@ -27,8 +27,9 @@ $imageWidth: 400px;
     height: 100%;
     filter: brightness(100%);
     transition: all 0.3s ease-out;
+    cursor: pointer;
     &:hover {
-      filter: brightness(120%);
+      filter: brightness(110%);
     }
   }
 }
@@ -50,4 +51,9 @@ $imageWidth: 400px;
 }
 
 @media (min-width: 1024px) {
+}
+
+
+.skeleton {
+  object-fit: cover;
 }

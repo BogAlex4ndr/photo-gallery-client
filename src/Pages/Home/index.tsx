@@ -7,6 +7,8 @@ import { useSelector } from 'react-redux';
 import Post from '../../components/Post';
 import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
+import Skeleton from '../../components/Skeleton';
+import Slider from '../../components/Slider';
 
 interface RootState {
   posts: any;
@@ -15,8 +17,20 @@ const Home = () => {
   const dispatch = useDispatch();
   const { posts } = useSelector((state: RootState) => state.posts);
 
+  const [isSliderOpen, setIsSliderOpen] = React.useState(false);
+  const [currentSlideIndex, setCurrentSlideIndex] = React.useState(0);
+
+  function handleImageClick(index: number) {
+    setIsSliderOpen(true);
+    setCurrentSlideIndex(index);
+  }
+
+  function closeSlider() {
+    setIsSliderOpen(false);
+  }
+
   const isPostsLoading = posts.status === 'loading';
-  console.log('this is items', posts.items);
+  console.log('this is items from home', posts.items);
 
   useEffect(() => {
     dispatch(fetchPosts());
@@ -24,21 +38,33 @@ const Home = () => {
 
   return (
     <section>
-      <div className={styles.previewPhoto}>
-        {' '}
+      <div  className={styles.previewPhoto}>
         <img src='http://i.mlcdn.com.br/portaldalu/fotosconteudo/87169_00.jpg' alt='' />
         <h1>
-          <span>Art photographer</span> <span>Margarita Kramaruk</span>
+          <span >Art photographer</span> <span>SubZero</span>
         </h1>
+        <h4 className={styles.Scroller} onClick={() => {window.scrollTo(0, 940)}}>Scroll</h4>
       </div>
       <Header />
+      {isSliderOpen && (
+        <Slider
+          images={posts.items.map((post) => post.imageUrl)}
+          currentIndex={currentSlideIndex}
+          onClose={closeSlider}
+        />
+      )}
       <div className={styles.wrapper}>
-        {(isPostsLoading ? [...Array(5)] : posts.items)
+        {(isPostsLoading ? [...Array(12)] : posts.items)
           .map((obj: any, index: any) =>
             isPostsLoading ? (
-              <div key={index}></div>
+              <Skeleton key={index} />
             ) : (
-              <Post key={obj._id} imageUrl={obj.imageUrl} _id={obj._id} createdAt={obj.createdAt} />
+              <Post
+                key={obj._id}
+                imageUrl={obj.imageUrl}
+                _id={obj._id}
+                onClick={() => handleImageClick(index)}
+              />
             ),
           )
           .reverse()}
