@@ -1,16 +1,7 @@
-import React, { useEffect } from 'react';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+import React from 'react';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
-import { fetchPosts } from '../../redux/slices/postSlice';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import Skeleton from '../Skeleton';
-import Post from '../Post';
 import styles from './Slider.module.scss';
-
-interface RootState {
-  posts: any;
-}
 
 const Slider = ({ images, currentIndex, onClose }) => {
   console.log(currentIndex);
@@ -27,8 +18,8 @@ const Slider = ({ images, currentIndex, onClose }) => {
         showStatus={false}
         infiniteLoop={true}>
         {images.map((image: string, index: number) => (
-          <div className={styles.imageWrapper}>
-            <img key={index} src={image} alt='' />
+          <div key={index} className={styles.imageWrapper}>
+            <img src={image} alt='' />
           </div>
         ))}
       </Carousel>

@@ -57,12 +57,26 @@ $gutter: 20px;
   }
   .Scroller {
     position: absolute;
-    bottom: 5%;
+    bottom: 3%;
     cursor: pointer;
-    pointer-events:visible;
+    pointer-events: visible;
+    font-size: 30px;
+    @media (max-width: 767px) {
+      bottom: 10%;
+    }
   }
 }
 
 .wrapperHiden {
+}
 
+h1 {
+  margin: 1em 0;
+  text-align: center;
+  color: black;
+  font-size: 2rem;
+  z-index: 50;
+  color: white;
+  font-style: italic;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
 }

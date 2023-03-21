@@ -33,15 +33,15 @@
   .burgerButton {
     width: 20px;
     height: 20px;
-    margin-right: 10px;
     position: relative;
     cursor: pointer;
+    color: white;
     span {
       position: absolute;
       top: 9px;
       width: 20px;
       height: 2px;
-      background-color: black;
+      background-color: rgb(255, 255, 255);
     }
     &::before {
       content: '';
@@ -49,7 +49,7 @@
       top: 0;
       width: 20px;
       height: 2px;
-      background-color: black;
+      background-color: rgb(255, 255, 255);
     }
     &::after {
       content: '';
@@ -57,24 +57,23 @@
       bottom: 0;
       width: 20px;
       height: 2px;
-      background-color: black;
+      background-color: rgb(255, 255, 255);
     }
   }
   .menu {
-    opacity: 0;
-    display: none;
     padding-top: 20px;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: absolute;
+    gap: 2rem;
+    position: fixed;
     width: 100%;
-    height: 100vh;
-    top: 50px;
-    left: 0;
+    height: 100%;
+    top: 0;
+    left: -100%;
     right: 0;
-    background-color: #6b6e97ee;
-    overflow: hidden;
+    background-color: #363636;
     transition: all 0.3s ease-in;
     z-index: 0;
     li {
@@ -82,27 +81,95 @@
     }
   }
   .menuActive {
-    opacity: 100;
     display: flex;
     padding-top: 20px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    width: 100vw;
-    height: 80vh;
-    gap: 1rem;
-    top: 50px;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    gap: 2rem;
+    top: 0;
     left: 0;
     right: 0;
-    background-color: #bbbbbbda;
-    overflow: hidden;
+    background-color: #363636;
     transition: all 0.3s ease-out;
-    z-index: -1;
+    z-index: 10;
     li {
-      opacity: 100;
-      transition: all 5s ease-out;
-      font-size: larger;
+    }
+    .burgerButtonActive {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      color: white;
+      span {
+        position: absolute;
+        top: 9px;
+        width: 0px;
+        height: 2px;
+        background-color: rgb(255, 255, 255);
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: 9px;
+        width: 20px;
+        height: 2px;
+        background-color: rgb(255, 255, 255);
+        transform: rotate(-45deg);
+        transition: all 0.3s ease-in-out;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        top: 9px;
+        width: 20px;
+        height: 2px;
+        background-color: rgb(255, 255, 255);
+        transform: rotate(45deg);
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+
+  .burgerButtonActive {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    color: white;
+    span {
+      position: absolute;
+      top: 9px;
+      width: 0px;
+      height: 2px;
+      background-color: rgb(255, 255, 255);
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 9px;
+      width: 20px;
+      height: 2px;
+      background-color: rgb(255, 255, 255);
+      transform: rotate(-45deg);
+      transition: all 0.3s ease-in-out;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 9px;
+      width: 20px;
+      height: 2px;
+      background-color: rgb(255, 255, 255);
+      transform: rotate(45deg);
+      transition: all 0.3s ease-in-out;
     }
   }
 }

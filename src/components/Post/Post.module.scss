@@ -20,6 +20,10 @@ $imageWidth: 400px;
   &:nth-child(5n + 5) {
     flex: 1 0 20%;
   }
+&:nth-last-of-type(1) {
+  flex: 0 0 25%;
+  width: 500px;
+}
 
   img {
     object-fit: cover;
@@ -52,7 +56,6 @@ $imageWidth: 400px;
 
 @media (min-width: 1024px) {
 }
-
 
 .skeleton {
   object-fit: cover;
