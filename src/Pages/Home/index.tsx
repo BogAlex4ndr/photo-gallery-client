@@ -10,6 +10,7 @@ import Header from '../../components/Header';
 import Skeleton from '../../components/Skeleton';
 import Slider from '../../components/Slider';
 import { TiArrowSortedDown } from 'react-icons/ti';
+import Footer from '../../components/Footer';
 
 interface RootState {
   posts: any;
@@ -56,7 +57,9 @@ const Home = () => {
       <span ref={myRef}>
         <Header />
       </span>
-      <h1>hello everybody <br/> how are you doing</h1>
+      <h1>
+        hello everybody <br /> how are you doing
+      </h1>
       {isSliderOpen && (
         <Slider
           images={posts.items.map((post) => post.imageUrl)}
@@ -80,6 +83,7 @@ const Home = () => {
           )
           .reverse()}
       </div>
+      <Footer />
     </section>
   );
 };

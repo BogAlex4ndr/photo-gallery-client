@@ -23,6 +23,7 @@ const AddPost = () => {
     if (window.confirm('are you sure?')) {
       dispatch(logout());
       window.localStorage.removeItem('token');
+      location.reload();
     }
   };
 
@@ -98,7 +99,6 @@ const AddPost = () => {
         <button className={styles.buttonLogOut} onClick={onClickLogout}>
           Log Out
         </button>
-        
       </div>
     </div>
   );

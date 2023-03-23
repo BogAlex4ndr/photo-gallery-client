@@ -4,7 +4,6 @@ import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { fechAuthMe, fetchUserData, selectIsAuth } from '../../redux/slices/auth';
-import UploadImage from '../../components/UploadImage';
 import styles from './Admin.module.scss';
 import Header from '../../components/Header';
 
