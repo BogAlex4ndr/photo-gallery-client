@@ -12,13 +12,12 @@ $imageWidth: 400px;
     flex: 1 0 45%;
   }
   img {
-    object-fit: cover;
+    display: block;
     width: 100%;
     height: 100%;
     transition: all 0.3s ease-out;
     cursor: pointer;
     &:hover {
-      
     }
   }
 }
@@ -26,24 +25,24 @@ $imageWidth: 400px;
 @media (min-width: 767px) {
   .imageConteiner {
     position: relative;
-    height: 45.3vh;
+    height: 55.3vh;
     min-width: 150px;
-    box-shadow: 3px 3px 7px rgb(0, 0, 0);
+    box-shadow: 3px 3px 7px rgb(15, 15, 15);
 
     &:nth-child(5n + 1) {
-      flex: 1 0 20%;
+      flex: 1 1 20%;
     }
     &:nth-child(5n + 2) {
-      flex: 1 0 25%;
+      flex: 1 1 25%;
     }
     &:nth-child(5n + 3) {
-      flex: 1 0 20%;
+      flex: 1 1 20%;
     }
     &:nth-child(5n + 4) {
-      flex: 1 0 25%;
+      flex: 1 1 25%;
     }
     &:nth-child(5n + 5) {
-      flex: 1 0 20%;
+      flex: 1 1 20%;
     }
     &:nth-last-of-type(1) {
       flex: 0 0 25%;
@@ -51,14 +50,14 @@ $imageWidth: 400px;
     }
 
     img {
-      object-fit: cover;
+      display: block;
       width: 100%;
       height: 100%;
       filter: brightness(100%);
       transition: all 0.3s ease-out;
       cursor: pointer;
       &:hover {
-        filter: brightness(100%);
+        filter: brightness(105%);
       }
     }
   }
@@ -78,7 +77,6 @@ $imageWidth: 400px;
   z-index: 10;
   transition: transform 0.2s ease-out;
   &:hover {
-   
     background-color: white;
     color: red;
   }
@@ -86,4 +84,8 @@ $imageWidth: 400px;
 
 .skeleton {
   object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
 }

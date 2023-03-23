@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Header.module.scss';
+import { GrInstagram } from 'react-icons/gr';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [active, setActive] = useState('');
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -37,7 +37,9 @@ const Header = () => {
           <div className={styles.burgerButtonActive} onClick={toggleMenu}>
             <span></span>
           </div>
-          <li onClick={window.innerWidth < 768 ? toggleMenu : () => {}}>about</li>
+          <li onClick={window.innerWidth < 768 ? toggleMenu : () => {}}>
+            <GrInstagram />
+          </li>
           <li onClick={window.innerWidth < 768 ? toggleMenu : () => {}}>somethin else</li>
           <li onClick={window.innerWidth < 768 ? toggleMenu : () => {}}>contacts</li>
           <li>

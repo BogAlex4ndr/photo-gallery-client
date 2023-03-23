@@ -57,9 +57,10 @@ const Home = () => {
       <span ref={myRef}>
         <Header />
       </span>
-      <h1>
-        hello everybody <br /> how are you doing
-      </h1>
+      <div className={styles.titleBlock}>
+        <h1>Welcome to my art space</h1>
+        <p>Fancy, Elegant, Monkey</p>
+      </div >
       {isSliderOpen && (
         <Slider
           images={posts.items.map((post) => post.imageUrl)}
