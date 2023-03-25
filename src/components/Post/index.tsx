@@ -1,6 +1,5 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { fetchRemovePost } from '../../redux/slices/postSlice';
 import styles from './Post.module.scss';
 import axios from '../../axios';
@@ -23,9 +22,8 @@ const Post = ({ _id, imageUrl, onClick }: any) => {
           X
         </button>
       )}
-      
-        <img onClick={onClick} src={imageUrl} alt='Image' />
-     
+
+      <img onClick={onClick} src={imageUrl} loading='lazy' alt='Image' />
     </div>
   );
 };

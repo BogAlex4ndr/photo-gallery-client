@@ -19,11 +19,14 @@ const Home = () => {
   const dispatch = useDispatch();
   const { posts } = useSelector((state: RootState) => state.posts);
   const myRef = useRef(null);
+  const thankRef = useRef(null);
 
   const [isSliderOpen, setIsSliderOpen] = React.useState(false);
   const [currentSlideIndex, setCurrentSlideIndex] = React.useState(0);
 
-  const executeScroll = () => myRef.current.scrollIntoView();
+  const executeScroll = () => {
+    myRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
 
   function handleImageClick(index: number) {
     setIsSliderOpen(true);
@@ -44,9 +47,12 @@ const Home = () => {
   }, []);
 
   return (
-    <section>
+    <section style={{ scrollBehavior: 'smooth' }}>
       <div className={styles.previewPhoto}>
-        <img src='http://i.mlcdn.com.br/portaldalu/fotosconteudo/87169_00.jpg' alt='' />
+        <img
+          src='https://cs14.pikabu.ru/post_img/big/2022/08/09/7/1660043542189487065.png'
+          alt=''
+        />
         <h1>
           <span>Art photographer</span> <span>SubZero</span>
         </h1>
@@ -55,12 +61,12 @@ const Home = () => {
         </h4>
       </div>
       <span ref={myRef}>
-        <Header />
+        <Header welcomeRef={myRef} thankRef={thankRef} />
       </span>
       <div className={styles.titleBlock}>
         <h1>Welcome to my art space</h1>
         <p>Fancy, Elegant, Monkey</p>
-      </div >
+      </div>
       {isSliderOpen && (
         <Slider
           images={posts.items.map((post) => post.imageUrl)}
@@ -84,7 +90,7 @@ const Home = () => {
           )
           .reverse()}
       </div>
-      <Footer />
+      <span ref={thankRef}><Footer /></span>
     </section>
   );
 };

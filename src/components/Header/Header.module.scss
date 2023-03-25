@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   background-color: rgb(31, 31, 31);
   border-bottom: 1px solid rgba(167, 167, 167, 0.247);
   width: 100%;
@@ -13,14 +14,55 @@
   top: 0;
   margin-bottom: 20px;
 }
+.mainInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
 .mainTitle {
-  display: inline-block;
+  padding-top: 22px;
+}
+
+.navigateText {
+  position: relative;
+  top: -55px;
+  left: 100px;
+  display: flex;
+  margin-top: 16px;
+  padding-bottom: 10px;
+  overflow: hidden;
+  overflow-x: auto;
+  overscroll-behavior: initial;
+  gap: 10px;
+  @media (max-width: 767px) {
+    margin-top: 22px;
+    top: 0;
+    left: 0;
+  }
+  li {
+    display: flex;
+    flex-shrink: 0;
+  }
+  h6 {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 1px;
+    margin-top: 0;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s ease-out;
+    &:hover {
+      color: rgb(151, 151, 151);
+    }
+  }
 }
 
 .navbar {
   z-index: 1;
-
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 }
 .menu {
@@ -173,5 +215,19 @@
       transform: rotate(45deg);
       transition: all 0.3s ease-in-out;
     }
+  }
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  &:hover {
+    transform: scale(110%);
+  }
+  @media (max-width: 767px) {
+    width: 35px;
+    height: 35px;
+    pointer-events: none;
   }
 }
