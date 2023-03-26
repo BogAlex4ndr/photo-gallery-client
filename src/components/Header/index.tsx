@@ -40,9 +40,11 @@ const Header = ({ welcomeRef, thankRef }: any) => {
               <span></span>
             </div>
             <li onClick={mobileWidth ? toggleMenu : () => {}}>
-              <Icon icon='skill-icons:instagram' className={styles.icon} />
+              <a href='https://www.instagram.com'>
+                <Icon icon='skill-icons:instagram' className={styles.icon} />
+              </a>
             </li>
-            <li onClick={mobileWidth ? toggleMenu : () => {}}>somethin else</li>
+            <li onClick={mobileWidth ? toggleMenu : () => {}}>something else</li>
             <li onClick={mobileWidth ? toggleMenu : () => {}}>contacts</li>
             <li>
               <Link onClick={mobileWidth ? toggleMenu : () => {}} to='/admin'>
@@ -52,16 +54,15 @@ const Header = ({ welcomeRef, thankRef }: any) => {
           </ul>
         </nav>
       </div>
-      
-        <ul className={styles.navigateText}>
-          <li>
-            <h6 onClick={() => executeScroll(welcomeRef)}>WELCOME TO MY ART SPACE</h6>
-          </li>
-          <li>
-            <h6 onClick={() => executeScroll(thankRef)}>THANK YOU FOR YOUR ATTENTION!</h6>
-          </li>
-        </ul>
-      
+
+      <ul className={styles.navigateText}>
+        <li>
+          <h6 onClick={() => executeScroll(welcomeRef)}>WELCOME TO MY ART SPACE</h6>
+        </li>
+        <li>
+          <h6 onClick={() => executeScroll(thankRef)}>THANK YOU FOR YOUR ATTENTION!</h6>
+        </li>
+      </ul>
     </header>
   );
 };

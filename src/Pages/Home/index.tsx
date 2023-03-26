@@ -50,7 +50,7 @@ const Home = () => {
     <section style={{ scrollBehavior: 'smooth' }}>
       <div className={styles.previewPhoto}>
         <img
-          src='https://cs14.pikabu.ru/post_img/big/2022/08/09/7/1660043542189487065.png'
+          src='https://portscaner.ru/Files/Wallpaper/1600x900/5fc4efd7e4e44.jpg'
           alt=''
         />
         <h1>
@@ -90,7 +90,9 @@ const Home = () => {
           )
           .reverse()}
       </div>
-      <span ref={thankRef}><Footer /></span>
+      <span ref={thankRef}>
+        <Footer />
+      </span>
     </section>
   );
 };
