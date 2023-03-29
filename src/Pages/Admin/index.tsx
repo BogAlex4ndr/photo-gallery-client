@@ -25,8 +25,8 @@ const Admin = () => {
     formState: { errors },
   } = useForm<FormData>({
     defaultValues: {
-      email: 'alex@gmail.com',
-      password: '12345',
+      email: '',
+      password: '',
     },
     mode: 'onChange',
   });
@@ -46,18 +46,24 @@ const Admin = () => {
       <Header />
       {!window.localStorage.getItem('token') && !isAuth ? (
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-          <input
-            aria-label='E-mail'
-            autoComplete='off'
-            type='email'
-            placeholder={errors.email?.message}
-            {...register('email', { required: 'enter email' })}></input>
-          <input
-            type='password'
-            aria-label='Password'
-            autoComplete='off'
-            placeholder={errors.password?.message}
-            {...register('password', { required: 'password' })}></input>
+          <div>
+            <p>email</p>
+            <input
+              aria-label='E-mail'
+              autoComplete='off'
+              type='email'
+              placeholder={errors.email?.message}
+              {...register('email', { required: 'enter email' })}></input>
+          </div>
+          <div>
+            <p>password</p>
+            <input
+              type='password'
+              aria-label='Password'
+              autoComplete='off'
+              placeholder={errors.password?.message}
+              {...register('password', { required: 'password' })}></input>
+          </div>
           <button className={styles.button} type='submit'>
             Enter
           </button>

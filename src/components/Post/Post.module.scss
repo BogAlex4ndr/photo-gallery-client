@@ -5,6 +5,7 @@ $imageWidth: 400px;
   height: 45.3vh;
   min-width: 150px;
   flex: 1 0 50%;
+  user-select: none;
   &:nth-child(even) {
     flex: 1 0 45%;
   }
@@ -17,6 +18,7 @@ $imageWidth: 400px;
     height: 100%;
     transition: all 0.3s ease-out;
     cursor: pointer;
+    user-select: none;
     &:hover {
     }
   }

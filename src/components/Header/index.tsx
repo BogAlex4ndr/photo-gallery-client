@@ -24,13 +24,23 @@ const Header = ({ welcomeRef, thankRef }: any) => {
   return (
     <header className={styles.wrapper}>
       <div className={styles.mainInfo}>
-        <Link to={'/'} className={styles.mainTitle}>
-          <img
-            style={{ width: '80px', height: '60px', borderRadius: '5px' }}
-            src='https://media.istockphoto.com/id/1187951204/photo/camera-lens-with-red-and-blue-backlight-macro-photography-lenses-horizontal-photography.jpg?s=612x612&w=0&k=20&c=CnuTkeg8vE7cvsyn7nAQB41bHZPXmEQZnZ52O7OZrtg='
-            alt='main image'
-          />
-        </Link>
+        <div className={styles.leftBox}>
+          <Link to={'/'} className={styles.mainTitle}>
+            <img
+              style={{ width: '80px', height: '60px', borderRadius: '5px' }}
+              src='https://media.istockphoto.com/id/1187951204/photo/camera-lens-with-red-and-blue-backlight-macro-photography-lenses-horizontal-photography.jpg?s=612x612&w=0&k=20&c=CnuTkeg8vE7cvsyn7nAQB41bHZPXmEQZnZ52O7OZrtg='
+              alt='main image'
+            />
+          </Link>
+          <ul className={styles.navigateTextBig}>
+            <li>
+              <h6 onClick={() => executeScroll(welcomeRef)}>WELCOME TO MY ART SPACE</h6>
+            </li>
+            <li>
+              <h6 onClick={() => executeScroll(thankRef)}>THANK YOU FOR YOUR ATTENTION!</h6>
+            </li>
+          </ul>
+        </div>
         <nav className={styles.navbar}>
           <div className={styles.burgerButton} onClick={toggleMenu}>
             <span></span>
@@ -44,8 +54,16 @@ const Header = ({ welcomeRef, thankRef }: any) => {
                 <Icon icon='skill-icons:instagram' className={styles.icon} />
               </a>
             </li>
-            <li onClick={mobileWidth ? toggleMenu : () => {}}>something else</li>
-            <li onClick={mobileWidth ? toggleMenu : () => {}}>contacts</li>
+            <li onClick={mobileWidth ? toggleMenu : () => {}}>
+              <a href='https://www.facebook.com'>
+                <Icon icon='logos:facebook' className={styles.icon} />
+              </a>
+            </li>
+            <li onClick={mobileWidth ? toggleMenu : () => {}}>
+              <a href='https://www.whatsapp.com'>
+                <Icon icon='logos:whatsapp-icon' className={styles.icon} />
+              </a>
+            </li>
             <li>
               <Link onClick={mobileWidth ? toggleMenu : () => {}} to='/admin'>
                 admin

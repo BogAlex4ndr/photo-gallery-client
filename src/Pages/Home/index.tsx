@@ -49,12 +49,9 @@ const Home = () => {
   return (
     <section style={{ scrollBehavior: 'smooth' }}>
       <div className={styles.previewPhoto}>
-        <img
-          src='https://portscaner.ru/Files/Wallpaper/1600x900/5fc4efd7e4e44.jpg'
-          alt=''
-        />
+        <img src='https://portscaner.ru/Files/Wallpaper/1600x900/5fc4efd7e4e44.jpg' alt='' />
         <h1>
-          <span>Art photographer</span> <span>SubZero</span>
+          <span>Art photographer</span>
         </h1>
         <h4 className={styles.Scroller} onClick={executeScroll}>
           <TiArrowSortedDown />
